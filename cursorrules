@@ -1,38 +1,45 @@
-# Cursor Rules — Template Guidance
+# Cursor Rules - Project Guidance
 
 Agent guidance
 
-- Match existing code patterns and naming. Keep diffs small.
-- Prefer clarity over cleverness. Ask before structural changes.
-- Don’t add dependencies or files unless essential for the user's goal.
+- Match existing code patterns, naming, and conventions. Keep edits small and diffs minimal.
+- Prefer clarity over cleverness. Ask before making structural changes or refactoring.
+- Don’t add dependencies, files, or features unless essential for the user's goal.
+- Always stick to best practices and don't add any new dependencies unless absolutely necessary
+- Check for existing functionality to reuse before adding new functionality
 
 Defaults (prefer unless code shows otherwise)
 
-- Next.js 14 App Router; Server Components by default. Add 'use client' only for state/effects/events
-- pnpm + Node LTS; lockfile committed
-- Imports: absolute from `src` for app code; relative inside a component folder
-- Folder‑per‑component: `src/components/atoms/<Name>/<Name>.tsx`
+- Next.js 14 App Router; Server Components by default. Add 'use client' only for interactivity (state, effects, events).
+- pnpm + Node LTS; lockfile committed.
+- Imports: absolute from src (or @/) for app code; relative inside a component folder.
+- Folder-per-component when components grow: src/components/atoms/<Name>/<Name>.tsx (or similar hierarchy like molecules/organisms/domains).
 
 Styling & layout
 
-- Tailwind utilities; minimal global CSS;
+- Tailwind utilities; keep global CSS minimal and avoid custom classes unless necessary.
+- Use rem units for spacing and font sizes where possible for scalability.
 
 TypeScript & DX
 
-- Strict TS, explicit prop types, PascalCase filenames, named exports
-- ESLint (Airbnb + Next + jsx-a11y) + Prettier; keep `pnpm lint/format` clean
+- Strict TS, explicit prop types/interfaces, PascalCase filenames, named exports.
+- ESLint (Airbnb + Next + jsx-a11y) + Prettier; ensure pnpm lint and pnpm format pass cleanly.
+- Prefer as const for design tokens (colors, spacing); avoid any or implicit types.
 
-Testing (optional)
+Testing
 
-- If enabled, start with one RTL smoke test for the home page
+- If enabled: Use Jest + React Testing Library + UserEvent.
+- If enabled: Run tests before committing or at the end of the task.
+- Structure: Use describe and it blocks; separate visual, interaction, and accessibility tests.
+- Goal: Test as a user would—focus on what the user sees, interacts with, and expects (no implementation details).
 
 When in doubt
 
-- Follow the patterns in the file you’re editing
-- Use semantic HTML and keep a11y intact
-- Keep things minimal—avoid scope creep
-- If conflicting conventions appear, prefer consistency within the folder
+- Follow the patterns in the file or folder you’re editing.
+- Use semantic HTML and maintain accessibility (a11y) standards.
+- Keep things minimal—avoid scope creep or over-engineering.
+- If conflicting conventions appear, prefer consistency within the folder or component.
 
 Divergence
 
-- Downstream projects can change structure/tools. Keep semantics/a11y and readability
+- Downstream projects can override structure, tools, or styling. Preserve semantics, a11y, and readability in changes.
