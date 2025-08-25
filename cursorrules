@@ -1,0 +1,38 @@
+# Cursor Rules — Template Guidance
+
+Agent guidance
+
+- Match existing code patterns and naming. Keep diffs small.
+- Prefer clarity over cleverness. Ask before structural changes.
+- Don’t add dependencies or files unless essential for the user's goal.
+
+Defaults (prefer unless code shows otherwise)
+
+- Next.js 14 App Router; Server Components by default. Add 'use client' only for state/effects/events
+- pnpm + Node LTS; lockfile committed
+- Imports: absolute from `src` for app code; relative inside a component folder
+- Folder‑per‑component: `src/components/atoms/<Name>/<Name>.tsx`
+
+Styling & layout
+
+- Tailwind utilities; minimal global CSS;
+
+TypeScript & DX
+
+- Strict TS, explicit prop types, PascalCase filenames, named exports
+- ESLint (Airbnb + Next + jsx-a11y) + Prettier; keep `pnpm lint/format` clean
+
+Testing (optional)
+
+- If enabled, start with one RTL smoke test for the home page
+
+When in doubt
+
+- Follow the patterns in the file you’re editing
+- Use semantic HTML and keep a11y intact
+- Keep things minimal—avoid scope creep
+- If conflicting conventions appear, prefer consistency within the folder
+
+Divergence
+
+- Downstream projects can change structure/tools. Keep semantics/a11y and readability

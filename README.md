@@ -1,35 +1,31 @@
 # Minimal Tailwind Template
 
-A lightweight React/Next.js template optimized for rapid prototyping with Tailwind CSS utility classes.
+A clean, well-structured foundation for React/Next.js projects built with modern best practices.
 
 ## Features
 
-- ⚡ **Next.js 14** with App Router
-- 🔷 **TypeScript 5** for type safety
-- 🎨 **Tailwind CSS** for utility-first styling
-- 📏 **ESLint** with Airbnb configuration
-- 💅 **Prettier** for code formatting
-- 📦 **PNPM** for fast package management
+- ⚡ Next.js 14 with App Router
+- 🔷 TypeScript 5 for type safety
+- 🎨 Tailwind CSS for utility-first styling
+- 📏 ESLint with Airbnb configuration
+- 💅 Prettier for code formatting
+- 📦 PNPM for fast package management
+- 🧩 Reusable component patterns
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- PNPM 9+
+- Node.js 18+
+- PNPM 9+ (install with `npm install -g pnpm`)
 
 ### Installation
 
-1. Clone this template:
-```bash
-npx create-next-app@14.2.5 my-app --typescript --tailwind --eslint --app --src-dir --use-pnpm
-cd my-app
-```
+Clone this repository:
 
-2. Or use this template directly:
 ```bash
-git clone <repository-url>
-cd minimal-tailwind
+git clone https://github.com/CW-Codewalnut/minimal-tailwind-template.git
+cd minimal-tailwind-template
 pnpm install
 ```
 
@@ -57,43 +53,30 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ## Project Structure
 
 ```
-minimal-tailwind/
-├── src/
-│   └── app/
-│       ├── globals.css
-│       ├── layout.tsx
-│       └── page.tsx
-├── .eslintrc.json
-├── .prettierrc
-├── .prettierignore
-├── next.config.mjs
-├── package.json
-├── postcss.config.mjs
-├── tailwind.config.ts
-└── tsconfig.json
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+└── components/
+    └── atoms/
+        ├── Button/
+        │   └── Button.tsx
+        ├── Link/
+        │   └── Link.tsx
+        └── Logo/
+            └── Logo.tsx
+
+public/
+└── codewalnut_logo.jpeg
 ```
 
-## Customization
+## Conventions
 
-### Theme Colors
+See `cursorrules` in the repo root for conventions and coding standards. Edit to fit your project.
 
-Edit `tailwind.config.ts` to customize your color palette:
+## Built with ❤️ by [CodeWalnut](https://www.codewalnut.com/)
 
-```typescript
-theme: {
-  extend: {
-    colors: {
-      primary: '#0070f3',
-      'primary-hover': '#0051cc',
-    },
-  },
-},
-```
+---
 
-### Styling
-
-This template uses Tailwind CSS utility classes for styling. No additional CSS frameworks are included to keep it lightweight for rapid prototyping.
-
-## License
-
-MIT
+MIT License
